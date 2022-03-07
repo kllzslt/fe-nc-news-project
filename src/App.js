@@ -1,24 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import AllArticle from './components/allArticle';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Nav from "./components/nav";
+import { useState } from "react";
+import Filter from "./components/filter";
+import Coding from "./components/coding";
+import Cooking from "./components/cooking";
+import Football from "./components/football";
+
 
 function App() {
+  const [byCategory, setByCategory] = useState("all");
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Nav />
+        {
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Filter setByCategory={setByCategory} />
+                  <AllArticle sortByCategory={byCategory} />
+                </>
+              }
+            />
+            <Route path="/coding" element={<Coding />} />
+            <Route path="/cooking" element={<Cooking />} />
+            <Route path="/football" element={<Football />} />
+          </Routes>
+}
     </div>
+    </BrowserRouter>
   );
 }
 

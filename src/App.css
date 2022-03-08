@@ -1,6 +1,8 @@
 @media screen and (min-width: 256px) {
   .App {
     text-align: center;
+    background-color: rgb(231, 248, 214);
+    color: rgb(28, 49, 8);
   }
 
   .App-header {

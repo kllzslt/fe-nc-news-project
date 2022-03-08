@@ -27,12 +27,6 @@ ul {
   margin: 0;
 }
 
-/* .logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .logo {
   max-width: 256px;
   align-items: center;
@@ -41,4 +35,6 @@ ul {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  filter: invert(13%) sepia(15%) saturate(4295%) hue-rotate(55deg)
+    brightness(102%) contrast(94%);
 }

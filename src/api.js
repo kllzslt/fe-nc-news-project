@@ -1,42 +1,49 @@
 import axios from "axios";
+const mcAPI = axios.create({
+	baseURL: "https://lc-nc-news.herokuapp.com/api",
+});
 
-const baseURL = "https://back-end-nc-news-project.herokuapp.com/api";
+export function fetchAllArticles() {
+	return mcAPI
+		.get("/articles")
+		.then(({ data: { articles } }) => {
+			return articles;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+}
 
-// export const fetchItems = () => {
-//   return axios.get(`${baseURL}/items`).then(({ data }) => {
-//     return data.items;
-//   });
-// };
+export function fetchArticlesByTopic(topic) {
+	return mcAPI
+		.get(`/articles?topic=${topic}`)
+		.then(({ data: { articles } }) => {
+			return articles;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+}
 
-// export const fetchCategories = () => {
-//   return axios.get(`${baseURL}/categories`).then(({ data }) => {
-//     return data.categories;
-//   });
-// };
+export function fetchAllTopics() {
+	return mcAPI
+		.get("/topics")
+		.then(({ data: { topics } }) => {
+			return topics;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+}
 
-// export const fetchByCategory = (sortByCategory) => {
-//   return axios
-//     .get(`${baseURL}/items?category_name=${sortByCategory}`)
-//     .then(({ data }) => {
-//       return data.items;
-//     });
-// };
-
-// export const postItemToSell = (itemToPost) => {
-//   return axios.post(`${baseURL}/items`, itemToPost).then((res) => {
-//     return res;
-//   });
-// };
-
-// export const itemToDelete = (itemToDelete) => {
-//   return axios.delete(`${baseURL}/items/${itemToDelete}`).then((res) => {
-//     console.log(res, "RES delete in API");
-//     return res;
-//   });
-// };
-
-// export const fetchUsers = () => {
-//   return axios.get(`${baseURL}/users`).then(({ data }) => {
-//     return data.users;
-//   });
-// };
+export function fetchArticleById(article_id) {
+	return mcAPI
+		.get(`/articles/${article_id}`)
+		.then(({ data: { article } }) => {
+			console.log(article);
+			return article;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+}

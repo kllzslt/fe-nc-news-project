@@ -28,11 +28,11 @@ const SingleArticle = () => {
 		<main className="container">
 			<div className="singleArticle">
 				<h1 className="article_title">{articles.title}</h1>
-				<h2 className="article_author">{articles.author}</h2>
-				<h3 className="article_topic">{articles.topic}</h3>
+				<h2 className="article_author">Author: {articles.author}</h2>
+				<h3 className="article_topic">Topic: {articles.topic}</h3>
 				<p className="article_created_at">{published}</p>
-				<p className="article_votes">{articles.votes}</p>
-				<p className="article_comment_count">{articles.comment_count}</p>
+				<p className="article_votes">Votes: {articles.votes}</p>
+				<p className="article_comment_count">Comments: {articles.comment_count}</p>
 			</div>
 		</main>
 	);

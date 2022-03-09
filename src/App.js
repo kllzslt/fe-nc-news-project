@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import Home from "./routes/Home";
-import SingleArticle from "./routes/SingleArticle";
+import Home from "../src/components/ArticleList";
+import SingleArticle from "../src/components/SingleArticle";
 
 function App() {
 	return (

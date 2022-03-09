@@ -8,6 +8,7 @@ const SingleArticle = () => {
 	const { article_id } = useParams();
 
 	useEffect(() => {
+		setIsLoading(true)
 		let isMounted = true;
 		if (article_id) {
 			api.fetchArticleById(article_id).then((data) => {

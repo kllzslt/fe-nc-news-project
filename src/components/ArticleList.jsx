@@ -1,6 +1,6 @@
 import * as api from "../api";
 import { useState, useEffect } from "react";
-import ArticleCard from "../components/ArticleCard";
+import ArticleCard from "./ArticleCard";
 import { useParams } from "react-router-dom";
 
 const ArticleList = () => {

@@ -8,6 +8,7 @@ const ArticleList = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const { topic } = useParams();
 	useEffect(() => {
+		setIsLoading(true);
 		if (!topic) {
 			api.fetchAllArticles().then((data) => {
 				setArticles(data);

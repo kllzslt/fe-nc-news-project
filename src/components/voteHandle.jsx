@@ -8,7 +8,7 @@ const VoteHandle = (props) => {
 		setVotes((currentCount) => {
 			return currentCount + value});
 		api.voteOnArticle(props.article_id, value).catch((err) =>{
-      console.dir(err, 'ERR')
+      return (err, 'ERR')
     })
 	}
   return(<div>

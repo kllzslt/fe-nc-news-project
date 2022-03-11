@@ -1,10 +1,10 @@
 import axios from "axios";
-const mcAPI = axios.create({
+const api = axios.create({
 	baseURL: "https://lc-nc-news.herokuapp.com/api",
 });
 
 export function fetchAllArticles() {
-	return mcAPI
+	return api
 		.get("/articles")
 		.then(({ data: { articles } }) => {
 			return articles;
@@ -15,7 +15,7 @@ export function fetchAllArticles() {
 }
 
 export function fetchArticlesByTopic(topic) {
-	return mcAPI
+	return api
 		.get(`/articles?topic=${topic}`)
 		.then(({ data: { articles } }) => {
 			return articles;
@@ -26,7 +26,7 @@ export function fetchArticlesByTopic(topic) {
 }
 
 export function fetchAllTopics() {
-	return mcAPI
+	return api
 		.get("/topics")
 		.then(({ data: { topics } }) => {
 			return topics;
@@ -37,10 +37,10 @@ export function fetchAllTopics() {
 }
 
 export function fetchArticleById(article_id) {
-	return mcAPI
+	return api
 		.get(`/articles/${article_id}`)
 		.then(({ data: { article } }) => {
-			//console.log(article);
+			console.log(article);
 			return article;
 		})
 		.catch((err) => {
@@ -49,9 +49,10 @@ export function fetchArticleById(article_id) {
 }
 
 export function voteOnArticle(article_id, vote) {
-	return mcAPI
+	return api
 		.patch(`/articles/${article_id}`, { inc_votes: vote })
 		.then(({ data: { article } }) => {
+			console.log(article, 'ARTICLE')
 			return article;
 		});
 }

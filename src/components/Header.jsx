@@ -6,7 +6,7 @@ const Header = () => {
 	const [user, setUser] = useState({
 		username: "Guest",
 		avatar_url:
-			".//gavatar.svg",
+			"./gavatar.svg",
 		kudos: 0,
 	});
 
@@ -15,7 +15,7 @@ const Header = () => {
 			<header className="Header">
 				<h1 className="logo">
         <Link to="/">
-          <img src=".//NEWS256.svg" alt="logo" />
+          <img src="./NEWS256.svg" alt="logo" />
 				</Link>
 				</h1>
 

@@ -40,10 +40,18 @@ export function fetchArticleById(article_id) {
 	return mcAPI
 		.get(`/articles/${article_id}`)
 		.then(({ data: { article } }) => {
-			console.log(article);
+			//console.log(article);
 			return article;
 		})
 		.catch((err) => {
 			console.log(err);
+		});
+}
+
+export function voteOnArticle(article_id, vote) {
+	return mcAPI
+		.patch(`/articles/${article_id}`, { inc_votes: vote })
+		.then(({ data: { article } }) => {
+			return article;
 		});
 }
